@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdlib>  // for rand() and srand()
+#include <ctime>    // for time()
+
+using namespace std;
+
+int main() {
+    srand(time(0)); // seed random number generator
+
+    const int SIZE = 10;
+    int numbers[SIZE];
+    int sum = 0;
+
+    cout << "Random numbers: ";
+    for (int i = 0; i < SIZE; i++) {
+        numbers[i] = rand() % 100 + 1; // random number between 1 and 100
+        cout << numbers[i] << " ";
+        sum += numbers[i];
+    }
+
+    double average = sum / static_cast<double>(SIZE);
+
+    cout << "\nSum: " << sum << endl;
+    cout << "Average: " << average << endl;
+
+    return 0;
+}
